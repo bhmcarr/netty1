@@ -3,13 +3,15 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <string.h>
+#include <sys/socket.h>
+#include <sys/types.h>
+#include <netdb.h>
 
 const BUF_SIZE = 50;
 
 int main(int argc, char* argv[]){
 	
 	//check for -s or -c flag
-	int flag1;
 	int errno;
 	char* cmdbuf;
 	cmdbuf = (char *)malloc(BUF_SIZE);
@@ -19,13 +21,13 @@ int main(int argc, char* argv[]){
 	user_ip = malloc(20);
 	user_ip = "0.0.0.0";
 
-	flag1 = getopt(argc,argv,"SsCc");	
+//	flag1 = getopt(argc,argv,"SsCc");
 
-	if(flag1 == 's' || flag1 == 'S'){
+	if(strcmp(argv[1],"s") == 0){
 		printf("Starting in server mode...\n");
 		//serverMode();
 	}	
-	else if(flag1 == 'c' || flag1 == 'C'){
+	else if(strcmp(argv[1],"c") == 0){
 		printf("Starting in client mode...\n");
 		//clientMode();
 	}
