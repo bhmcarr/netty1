@@ -95,10 +95,7 @@ int main(int argc, char* argv[]){
 	    }
 
 	    else if(strcmp(cmdbuf,"myip") == 0){ //display user IP address
-	    	int temp_socket = socket(AF_INET, SOCK_DGRAM, 0);
-	    	sockaddr_in tempaddr;
-	    	bzero(&tempaddr, sizeof(struct sockaddr_in));
-
+	    	
 
 
 	    	printf("Your IP Address: %s\n",user_ip);
